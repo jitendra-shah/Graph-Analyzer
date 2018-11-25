@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="340" max="-2" attributes="0"/>
+              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="13" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JPanel" name="jPanel1">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+        <Property name="autoscrolls" type="boolean" value="true"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;    public void paintComponent(Graphics g)&#xa;    {&#xa;        super.paintComponent(g);&#xa;        Graphics2D g2 = (Graphics2D) g;&#xa;        if(edgecount!=-1)&#xa;        {&#xa;            //   node[i] = new Ellipse2D.Double(Xcentre, Ycentre, w, h);&#xa;            if(edgeFlag==1)&#xa;            {&#xa;                for(int j=0;j&lt;=ec;j++){&#xa;                    g2.setStroke(new BasicStroke(3));&#xa;                    //                    if(outedge[j]==1)&#xa;                    //                   g2.setColor(Color.CYAN);&#xa;                    //                   else&#xa;                    g2.setColor(Color.BLUE);&#xa;                    g2.drawLine((int)edge[j][0],(int)edge[j][1],(int)edge[j][2],(int)edge[j][3]);&#xa;                }&#xa;            }&#xa;            else if(edgeFlag==2)&#xa;            {&#xa;                int v1x,v1y,v2x,v2y,v3x,v3y;&#xa;                for(int j=0;j&lt;=ec;j++){&#xa;                    g2.setStroke(new BasicStroke(3));&#xa;                    g2.setColor(Color.BLUE);&#xa;                    g2.drawLine((int)edge[j][0],(int)edge[j][1],(int)edge[j][2],(int)edge[j][3]);&#xa;                    int centerX=(int)edge[j][2];&#xa;                    int centerY=(int)edge[j][3];&#xa;                    v1x=(int)edge[j][2]-20;&#xa;                    v1y=(int)edge[j][3];&#xa;                    v2x=(int)edge[j][2]-45;&#xa;                    v2y=(int)edge[j][3]+8;&#xa;                    v3x=(int)edge[j][2]-45;&#xa;                    v3y=(int)edge[j][3]-8;&#xa;                    double angle = Math.atan2(edge[j][3]-edge[j][1], edge[j][2]-edge[j][0]);&#xa;                    int x1r = (int) ((v1x - centerX) * Math.cos(angle) - (v1y - centerY) * Math.sin(angle) + centerX);&#xa;                    int y1r = (int) ((v1x - centerX) * Math.sin(angle) + (v1y - centerY) * Math.cos(angle) + centerY);&#xa;&#xa;                    int x2r = (int) ((v2x - centerX) * Math.cos(angle) - (v2y - centerY) * Math.sin(angle) + centerX);&#xa;                    int y2r = (int) ((v2x - centerX) * Math.sin(angle) + (v2y - centerY) * Math.cos(angle) + centerY);&#xa;&#xa;                    int x3r = (int) ((v3x - centerX) * Math.cos(angle) - (v3y - centerY) * Math.sin(angle) + centerX);&#xa;                    int y3r = (int) ((v3x - centerX) * Math.sin(angle) + (v3y - centerY) * Math.cos(angle) + centerY);&#xa;                    arrowHead[j]=new Polygon();&#xa;                    arrowHead[j].addPoint(x1r,y1r);&#xa;                    arrowHead[j].addPoint(x2r,y2r);&#xa;                    arrowHead[j].addPoint(x3r,y3r);&#xa;                    g2.fill(arrowHead[j]);&#xa;                }&#xa;&#xa;            }&#xa;            else if(edgeFlag==3)&#xa;            {&#xa;                for(int j=0;j&lt;=ec;j++){&#xa;                    g2.setStroke(new BasicStroke(3));&#xa;                    g2.setColor(Color.BLUE);&#xa;                    g2.drawLine((int)edge[j][0],(int)edge[j][1],(int)edge[j][2],(int)edge[j][3]);&#xa;                    g2.setColor(Color.BLACK);&#xa;                    g2.setFont(new Font(&quot;default&quot;, Font.BOLD, 16));&#xa;                    g2.drawString(Integer.toString(weight[j]),(int)((edge[j][0]+edge[j][2])/2)+15,(int)((edge[j][1]+edge[j][3])/2)+15);&#xa;                }&#xa;&#xa;                for(int j=0;j&lt;=curr_output;j++){&#xa;                    g2.setStroke(new BasicStroke(3));&#xa;                    g2.setColor(Color.CYAN);&#xa;                    g2.drawLine((int)edge[outedge[j]][0],(int)edge[outedge[j]][1],(int)edge[outedge[j]][2],(int)edge[outedge[j]][3]);&#xa;                }&#xa;            }&#xa;        }&#xa;        if(i!=-1)&#xa;        {&#xa;            //   node[i] = new Ellipse2D.Double(Xcentre, Ycentre, w, h);&#xa;            for(int j=0;j&lt;=k;j++){&#xa;                g2.setColor(Color.RED);&#xa;                g2.fill(node[j]);&#xa;                g2.setColor(Color.BLACK);&#xa;                int diff=(int)g2.getFontMetrics().getStringBounds(node_names[j], g2).getWidth();&#xa;                g2.drawString(node_names[j],(int)(node[j].getCenterX()-diff/2),(int)(node[j].getCenterY()+diff/3));&#xa;            }&#xa;&#xa;            for(int j=0;j&lt;=curr_output;j++){&#xa;                g2.setColor(Color.GREEN);&#xa;                g2.fill(node[outnode[j]]);&#xa;                g2.setColor(Color.BLACK);&#xa;                int diff=(int)g2.getFontMetrics().getStringBounds(node_names[j], g2).getWidth();&#xa;                g2.drawString(node_names[outnode[j]],(int)(node[outnode[j]].getCenterX()-diff/2),(int)(node[outnode[j]].getCenterY()+diff/3));&#xa;            }&#xa;        }&#xa;&#xa;    };&#xa;}"/>
+      </AuxValues>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="917" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="619" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+    </Container>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="graphanalyzer/Bundle.properties" key="Output2.jButton1.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton2">
+      <Properties>
+        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
+          <ResourceString bundle="graphanalyzer/Bundle.properties" key="Output2.jButton2.text" replaceFormat="org.openide.util.NbBundle.getMessage({sourceFileName}.class, &quot;{key}&quot;)"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
+</Form>
